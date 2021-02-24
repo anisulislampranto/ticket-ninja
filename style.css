@@ -1,0 +1,104 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-image: url(images/bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.bookNow-button{
+    margin-top: 15px;
+    width: 384px;
+
+}
+.nav-item{
+    text-decoration-color: white;
+}
+.gap-between{
+    margin-top: 20px;
+}
+.input-box{
+    width: 390px;
+    border: none;
+    background-color:whitesmoke;
+    padding: 2px;
+}
+.input-class{
+    width: 317px;
+    border: none;
+    background-color:whitesmoke;
+    padding: 2px;
+
+}
+.total-section{
+    display: flex;
+    margin-top: 15px;
+
+}
+.total-money{
+    margin-left: 289px;
+}
+.subtotal-money{
+    margin-left: 274px;
+}
+.vat-money{
+    margin-left: 201px;
+}
+.vat-count{
+    display: flex;
+    margin-top: 10px;
+
+}
+.subtotal-section{
+    display: flex;
+    margin-top: 30px;
+    
+}
+
+.economy-class-btn{
+    width: 30px; 
+    font-weight: bolder;
+    border: none;
+    box-shadow: 0px 5px 10px grey;
+
+}
+.first-class-btn{
+    width: 30px; 
+    font-weight: bolder;
+    border: none;
+    box-shadow: 0px 5px 10px grey;
+
+}
+
+.calculation{
+    display: flex;
+    width: 100%;
+}
+.navbar-text-color{
+    color: white;
+}
+.navbar-margin{
+    margin-top: 10px;
+}
+.displaybody{
+    display: flex;
+} 
+.dateInput{
+    display: flex;
+    padding: 2px;
+    
+}
+.dateInput input{
+    border: none;
+}
+.form{
+    height: 670px;
+    width: 450px;
+    border: 5px solid white;
+    border-radius: 10px;   
+    background-color: white;
+    padding: 20px;
+}
+.right-side{
+    color: white;
+    margin-left: 100px;
+    padding-top: 200px;
+}

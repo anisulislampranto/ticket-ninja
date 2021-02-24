@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="container navbar-margin">
+        <ul class="nav nav-pills mb-3 d-flex justify-content-end" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link navbar-text-color" id="pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                    aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item " role="presentation">
+                <button class="nav-link navbar-text-color" id="pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">About Us</button>
+            </li>
+            <li class="nav-item " role="presentation">
+                <button class="nav-link navbar-text-color" id="pills-contact-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                    aria-selected="false">Contact</button>
+            </li>
+            <li class="nav-item " role="presentation">
+                <button class="nav-link active navbar-text-color" id="pills-contact-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                    aria-selected="false">Sign up</button>
+            </li>
+        </ul>
+
+    </nav>
+
+    <section class="container displaybody">
+        <div class="col-md-6 form">
+            <h4>Booking Flights</h4>
+
+
+            <h6 class="gap-between">Flying From</h6>
+
+            <input class="input-box" type="text" placeholder="Dhaka,Bangladesh">
+
+
+            <h6 class="gap-between">Flying To</h6>
+
+            <input class="input-box" type="text" placeholder="New York, USA">
+
+            <div class="dateInput gap-between">
+
+                <div class="col-md-6">
+                    <h6>Depurture</h6> <input style="background-color: whitesmoke;" type="text" placeholder="mm/dd/yyyy">
+                </div>
+
+                <div class="col-md-6">
+                    <h6>Return</h6> <input style="background-color: whitesmoke;" type="text" placeholder="mm/dd/yyyy">
+                </div>
+            </div>
+            <h6 class="gap-between">First Class ($150)</h6>
+            <input id="firstClass-amount" class="input-class" type="number" placeholder="">
+            <button id="firstClass-amount-increase" class="first-class-btn">+</button> <button id="firstClass-amount-decrease" class="first-class-btn">-</button>
+
+            <h6 class="gap-between">Economy Class ($100)</h6>
+            <input id="economyClass-amount" class="input-class" type="number" placeholder=""> 
+            <button id="economyClass-amount-increase" class="economy-class-btn">+</button> 
+            <button id="economyClass-amount-decrease" class="economy-class-btn">-</button>
+
+
+            <div class="d-flex subtotal-section">
+                <h5>Subtotal</h5>
+                <h5 id="current-subtotal" class="subtotal-money">00</h5>
+            </div>
+
+            <div class="d-flex vat-count">
+                <h5>Charge 10% VAT</h5> <h5 class="vat-money">$00</h5>
+            </div>
+
+            <div class="d-flex total-section">
+                <h4>Total</h4> <h4 class="total-money">$00</h4>
+            </div>
+
+            <button type="button" class="btn btn-primary bookNow-button">Book Now</button>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-md-6 right-side">
+
+            
+            <h1 style="font-size: 55px;">DISCOVER <br> AROUND THE WORLD</h1>
+            <br>
+            <br>
+            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic molestiae perferendis ex quibusdam,
+                tempore
+                eaque itaque perspiciatis numquam recusandae magnam optio laudantium sequi natus aspernatur porro
+                temporibus eos possimus rerum distinctio omnis earum?</p>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+    document.getElementById("firstClass-amount-increase").addEventListener('click', function(){
+        const currentAmount = document.getElementById("firstClass-amount");
+
+        const amountValue = parseInt(currentAmount.value);
+        const addedAmount = amountValue * 150;
+        console.log(typeof addedAmount);
+
+        const currentTotal = document.getElementById("current-subtotal");
+
+        
+        
+        const currentTotalValue = parseInt(currentTotal.value);
+        console.log(currentTotalValue)
+
+        const newTotal = addedAmount + currentTotalValue; 
+
+        
+        document.getElementById("current-subtotal").innerText = newTotal; 
+
+
+        
+
+        
+
+
+
+       
+        
+
+
+
+
+    
+        
+        
+    })
+        
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"
+    </script>
+</body>
+
+</html>
