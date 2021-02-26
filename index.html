@@ -43,7 +43,9 @@
     </nav>
 
     <section class="container displaybody">
-        <div class="col-md-6 form">
+
+
+        <div class="col-md-6 form" id="inputForm">
             <h4>Booking Flights</h4>
 
 
@@ -67,45 +69,46 @@
                 </div>
             </div>
             <h6 class="gap-between">First Class ($150)</h6>
-            <input id="firstClass-amount" class="input-class" type="number" placeholder="">
+            <input id="firstClass-amount" class="input-class" type="number" placeholder="" value="0" >
             <button id="firstClass-amount-increase" class="first-class-btn">+</button> <button id="firstClass-amount-decrease" class="first-class-btn">-</button>
 
             <h6 class="gap-between">Economy Class ($100)</h6>
-            <input id="economyClass-amount" class="input-class" type="number" placeholder=""> 
+            <input id="economyClass-amount" class="input-class" type="number" placeholder="" value="0" > 
             <button id="economyClass-amount-increase" class="economy-class-btn">+</button> 
             <button id="economyClass-amount-decrease" class="economy-class-btn">-</button>
 
 
             <div class="d-flex subtotal-section">
-                <h5>Subtotal</h5>
-                <h5 id="current-subtotal" class="subtotal-money">00</h5>
+                <h5 class="p-2 flex-grow-1">Subtotal</h5>
+                <h5 class="p-2">$</h5>
+                <h5 id="current-subtotal" class="subtotal-money p-2">00</h5>
+                
             </div>
-
-            <div class="d-flex vat-count">
-                <h5>Charge 10% VAT</h5> <h5 class="vat-money">$00</h5>
+            <div class="d-flex subtotal-section">
+                <h5 class="p-2 flex-grow-1">Charge 10% VAT</h5>
+                <h5 class="p-2">$</h5>
+                <h5 id="current-vat" class="subtotal-money p-2">00</h5>
+                
             </div>
-
-            <div class="d-flex total-section">
-                <h4>Total</h4> <h4 class="total-money">$00</h4>
+            <div class="d-flex subtotal-section">
+                <h5 class="p-2 flex-grow-1">Total</h5>
+                <h5 class="p-2">$</h5>
+                <h5 id="current-total" class="subtotal-money p-2">00</h5>
+                
             </div>
+            
 
-            <button type="button" class="btn btn-primary bookNow-button">Book Now</button>
+            <button type="button" class="btn btn-primary bookNow-button" id="bookNow-button">Book Now</button>
 
-
-
-
+            
+        
         </div>
 
+        <div class="col-md-5" id="checkout-form">
+            <h1 style="color: white;">Ticket Booked <span style="color: green;">succesfully !</span> </h1>
+            <h3 style="color: white;">Have a Good Day, Thank You.</h3>
 
-
-
-
-
-
-
-
-
-
+        </div>
 
         <div class="col-md-6 right-side">
 
@@ -114,92 +117,142 @@
             <br>
             <br>
             <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic molestiae perferendis ex quibusdam,
-                tempore
-                eaque itaque perspiciatis numquam recusandae magnam optio laudantium sequi natus aspernatur porro
+                tempore eaque itaque perspiciatis numquam recusandae magnam optio laudantium sequi natus aspernatur porro
                 temporibus eos possimus rerum distinctio omnis earum?</p>
         </div>
     </section>
 
+ <script>
 
+            //  First class
 
+        // First class plus button execution
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
 
     document.getElementById("firstClass-amount-increase").addEventListener('click', function(){
         const currentAmount = document.getElementById("firstClass-amount");
 
         const amountValue = parseInt(currentAmount.value);
+        const amountCount = amountValue + 1;
+        currentAmount.value = amountCount;
         const addedAmount = amountValue * 150;
-        console.log(typeof addedAmount);
+
+
+        const currentSubTotal = document.getElementById("current-subtotal");
+        const currentSubTotalValue = parseInt(currentSubTotal.innerText);
+        const newSubTotal = addedAmount + currentSubTotalValue; 
+        document.getElementById("current-subtotal").innerText = newSubTotal; 
+
+        const currentVat = document.getElementById("current-vat");
+        const updateVat = newSubTotal * .1;
+        document.getElementById("current-vat").innerText = updateVat; 
+
+        const currentTotal = document.getElementById("current-total");
+        const updateTotal = newSubTotal + updateVat;
+        document.getElementById("current-total").innerText = updateTotal;
+
+        })
+
+        // First Class minus button execution 
+
+        document.getElementById("firstClass-amount-decrease").addEventListener('click', function(){
+        const currentAmount = document.getElementById("firstClass-amount");
+        
+        const amountValue = parseInt(currentAmount.value);
+        const amountCount = amountValue - 1;
+        currentAmount.value = amountCount;
+        const addedAmount = amountValue * 150;
 
         const currentTotal = document.getElementById("current-subtotal");
-
-        
-        
-        const currentTotalValue = parseInt(currentTotal.value);
-        console.log(currentTotalValue)
-
-        const newTotal = addedAmount + currentTotalValue; 
-
-        
+        const currentTotalValue = parseInt(currentTotal.innerText);
+        const newTotal = currentTotalValue - addedAmount; 
         document.getElementById("current-subtotal").innerText = newTotal; 
 
-
-        
-
-        
-
-
-
-       
-        
+        const currentVat = document.getElementById("current-vat");
+        const updateVat = newTotal * .1;
+        const reducedVat = newTotal - updateVat;
+        document.getElementById("current-vat").innerText = reducedVat; 
 
 
+        const finalTotal = document.getElementById("current-total");
+        const reducedTotal = newTotal + reducedVat;
+        document.getElementById("current-total").innerText = reducedTotal;
 
 
-    
-        
-        
     })
-        
 
 
+        // ECONOMY CLASS 
+
+     // Economy Class plus button execution
+
+    document.getElementById("economyClass-amount-increase").addEventListener('click', function(){
+        const currentAmount = document.getElementById("economyClass-amount");
+
+        const amountValue = parseInt(currentAmount.value);
+        const amountCount = amountValue + 1;
+        currentAmount.value = amountCount;
+        const addedAmount = amountValue * 150;
+
+        const currentSubTotal = document.getElementById("current-subtotal");
+        const currentSubTotalValue = parseInt(currentSubTotal.innerText);
+        const newSubTotal = addedAmount + currentSubTotalValue; 
+        document.getElementById("current-subtotal").innerText = newSubTotal; 
+
+        const currentVat = document.getElementById("current-vat");
+        const updateVat = newSubTotal * .1;
+        document.getElementById("current-vat").innerText = updateVat; 
+
+        const currentTotal = document.getElementById("current-total");
+        const updateTotal = newSubTotal + updateVat;
+        document.getElementById("current-total").innerText = updateTotal;
+
+        })
+
+        // Economy Class minus button execution 
+
+        document.getElementById("economyClass-amount-decrease").addEventListener('click', function(){
+        const currentAmount = document.getElementById("economyClass-amount");
+
+        const amountValue = parseInt(currentAmount.value);
+        const amountCount = amountValue - 1;
+        currentAmount.value = amountCount;
+        const addedAmount = amountValue * 150;
+
+        const currentTotal = document.getElementById("current-subtotal");
+        const currentTotalValue = parseInt(currentTotal.innerText);
+        const newTotal = currentTotalValue - addedAmount; 
+        document.getElementById("current-subtotal").innerText = newTotal; 
+
+        const currentVat = document.getElementById("current-vat");
+        const updateVat = newTotal * .1;
+        const reducedVat = newTotal - updateVat;
+        document.getElementById("current-vat").innerText = reducedVat; 
 
 
+        const finalTotal = document.getElementById("current-total");
+        const reducedTotal = newTotal + reducedVat;
+        document.getElementById("current-total").innerText = reducedTotal;
 
 
+    })
+        const bookNowbtn = document.getElementById("bookNow-button");
 
+        bookNowbtn.addEventListener("click", function(){
+        const beforeform = document.getElementById("inputForm");
+        beforeform.style.display = "none";
+
+        const afterForm = document.getElementById("checkout-form");
+        afterForm.style.display = "block";
+    })
+    </script>
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"
+        crossorigin="anonymous">
+
     </script>
 </body>
 
